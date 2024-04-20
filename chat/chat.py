@@ -3,15 +3,14 @@
 import reflex as rx
 from chat.components import chat, navbar
 
-
 def index() -> rx.Component:
     """The main app."""
     return rx.chakra.vstack(
         navbar(),
         chat.chat(),
         chat.action_bar(),
-        background_color=rx.color("mauve", 1),
-        color=rx.color("mauve", 12),
+        background_color="#A0B6FF",
+        color=rx.color("indigo", 12),
         min_height="100vh",
         align_items="stretch",
         spacing="0",
@@ -22,7 +21,7 @@ def index() -> rx.Component:
 app = rx.App(
     theme=rx.theme(
         appearance="dark",
-        accent_color="violet",
+        accent_color="indigo",
     ),
 )
 app.add_page(index)

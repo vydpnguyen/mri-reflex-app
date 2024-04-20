@@ -20,22 +20,22 @@ def message(qa: QA) -> rx.Component:
         rx.box(
             rx.markdown(
                 qa.question,
-                background_color=rx.color("mauve", 4),
-                color=rx.color("mauve", 12),
+                background_color="#ffffff",
+                color="#3E63DD",
                 **message_style,
             ),
             text_align="right",
-            margin_top="1em",
+            margin_top="0.5em",
         ),
         rx.box(
             rx.markdown(
                 qa.answer,
-                background_color=rx.color("accent", 4),
-                color=rx.color("accent", 12),
+                background_color="#3E63DD",
+                color="#ffffff",
                 **message_style,
             ),
             text_align="left",
-            padding_top="1em",
+            padding_top="0.5em",
         ),
         width="100%",
     )
@@ -68,12 +68,8 @@ def action_bar() -> rx.Component:
                                 placeholder="Type something...",
                                 id="question",
                                 width=["15em", "20em", "45em", "50em", "50em", "50em"],
-                            ),
-                            rx.radix.text_field.slot(
-                                rx.tooltip(
-                                    rx.icon("info", size=18),
-                                    content="Enter a question to get a response.",
-                                )
+                                background_color="#ffffff",
+                                color="#3E63DD"
                             ),
                         ),
                         rx.button(
@@ -92,13 +88,19 @@ def action_bar() -> rx.Component:
                 reset_on_submit=True,
             ),
             rx.text(
-                "ReflexGPT may return factually incorrect or misleading responses. Use discretion.",
+                "MRIBot may return factually incorrect or misleading responses. Use discretion.",
                 text_align="center",
                 font_size=".75em",
-                color=rx.color("mauve", 10),
+                color="#3E63DD"
             ),
-            rx.logo(margin_top="-1em", margin_bottom="-1em"),
+            rx.hstack(
+                rx.text("Built with", color="#ffffff"),
+                rx.image(src="https://i.ibb.co/Df6px36/Screenshot-2024-04-20-at-1-53-45-PM.png", height="30px", width="auto"),
+                align_items="flex-end",
+                justify_content="space-between",
+            ),
             align_items="center",
+            justify_content="in-between",
         ),
         position="sticky",
         bottom="0",
@@ -106,8 +108,7 @@ def action_bar() -> rx.Component:
         padding_y="16px",
         backdrop_filter="auto",
         backdrop_blur="lg",
-        border_top=f"1px solid {rx.color('mauve', 3)}",
-        background_color=rx.color("mauve", 2),
+        background_color="#A0B6FF",
         align_items="stretch",
         width="100%",
     )
