@@ -10,7 +10,6 @@ def index() -> rx.Component:
         navbar(),
         chat.chat(),
         chat.action_bar(),
-        upload_index(),
         background_color="#A0B6FF",
         color=rx.color("indigo", 12),
         min_height="100vh",

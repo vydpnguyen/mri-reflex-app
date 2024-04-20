@@ -55,38 +55,53 @@ def chat() -> rx.Component:
         padding_bottom="5em",
     )
 
-
 def action_bar() -> rx.Component:
     """The action bar to send a new message."""
     return rx.center(
-        rx.vstack(
-            rx.chakra.form(
-                rx.chakra.form_control(
-                    rx.hstack(
-                        rx.radix.text_field.root(
-                            rx.radix.text_field.input(
-                                placeholder="Type something...",
-                                id="question",
-                                width=["15em", "20em", "45em", "50em", "50em", "50em"],
-                                background_color="#ffffff",
-                                color="#3E63DD"
+                rx.vstack(
+                    rx.hstack (
+                        rx.hstack(
+                            rx.upload(
+                                rx.button("Select File", color=color, bg="white", border=f"1px solid {color}"),
+                                id="upload1",
                             ),
+                            rx.hstack(rx.foreach(rx.selected_files("upload1"), rx.text)),
+                            rx.button(
+                                "Upload",
+                                on_click=State.handle_upload(rx.upload_files(upload_id="upload1")),
+                            ),
+                            #rx.foreach(State.img, lambda img: rx.image(src=rx.get_upload_url(img))),
                         ),
-                        rx.button(
-                            rx.cond(
-                                State.processing,
-                                loading_icon(height="1em"),
-                                rx.text("Send"),
+                        rx.chakra.form(
+                            rx.chakra.form_control(
+                                rx.hstack(
+                                    rx.radix.text_field.root(
+                                        rx.radix.text_field.input(
+                                            placeholder="Type something...",
+                                            id="question",
+                                            width=["15em", "20em", "45em", "50em", "50em", "50em"],
+                                            background_color="#ffffff",
+                                            color="#3E63DD"
+                                        ),
+                                    ),
+                                    rx.button(
+                                        rx.cond(
+                                            State.processing,
+                                            loading_icon(height="1em"),
+                                            rx.text("Send"),
+                                        ),
+                                        type="submit",
+                                    ),
+
+                                    align_items="center",
+                                ),
+                                is_disabled=State.processing,
                             ),
-                            type="submit",
+                            on_submit=State.process_question,
+                            reset_on_submit=True,
                         ),
                         align_items="center",
                     ),
-                    is_disabled=State.processing,
-                ),
-                on_submit=State.process_question,
-                reset_on_submit=True,
-            ),
             rx.text(
                 "MRIBot may return factually incorrect or misleading responses. Use discretion.",
                 text_align="center",
@@ -112,3 +127,5 @@ def action_bar() -> rx.Component:
         align_items="stretch",
         width="100%",
     )
+
+color = "#3E63DD"

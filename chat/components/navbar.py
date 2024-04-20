@@ -113,7 +113,7 @@ def navbar():
                 modal(
                     rx.button(
                         rx.icon(
-                                tag="message-square-plus",
+                                tag="plus",
                                 color="#ffffff",
                             ),
                             background_color="#3E63DD",

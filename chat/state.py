@@ -19,7 +19,6 @@ class State(rx.State):
     """Handling image upload here"""
 
     img: list[str]
-
     async def handle_upload(self, files: list[rx.UploadFile]):
         for file in files:
             uploaded_data = await file.read()
