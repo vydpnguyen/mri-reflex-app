@@ -15,6 +15,21 @@ DEFAULT_CHATS = {
 }
 
 class State(rx.State):
+
+    """Handling image upload here"""
+
+    img: list[str]
+
+    async def handle_upload(self, files: list[rx.UploadFile]):
+        for file in files:
+            uploaded_data = await file.read()
+            outfile = rx.get_upload_dir() / file.filename
+
+            with outfile.open("wb") as file_object:
+                file_object.write(uploaded_data)
+            
+            self.img.append(file.filename)
+
     """The app state."""
     chats: dict[str, list[QA]] = DEFAULT_CHATS
     current_chat = "Intros"

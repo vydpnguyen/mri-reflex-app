@@ -2,6 +2,7 @@
 
 import reflex as rx
 from chat.components import chat, navbar
+from chat.components.upload import upload_index
 
 def index() -> rx.Component:
     """The main app."""
@@ -9,6 +10,7 @@ def index() -> rx.Component:
         navbar(),
         chat.chat(),
         chat.action_bar(),
+        upload_index(),
         background_color="#A0B6FF",
         color=rx.color("indigo", 12),
         min_height="100vh",
