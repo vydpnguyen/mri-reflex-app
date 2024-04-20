@@ -20,8 +20,8 @@ def message(qa: QA) -> rx.Component:
         rx.box(
             rx.markdown(
                 qa.question,
-                background_color=rx.color("mauve", 4),
-                color=rx.color("mauve", 12),
+                background_color=rx.color("blue", 4),
+                color=rx.color("blue", 12),
                 **message_style,
             ),
             text_align="right",
@@ -30,8 +30,8 @@ def message(qa: QA) -> rx.Component:
         rx.box(
             rx.markdown(
                 qa.answer,
-                background_color=rx.color("accent", 4),
-                color=rx.color("accent", 12),
+                background_color=rx.color("ruby", 4),
+                color=rx.color("ruby", 12),
                 **message_style,
             ),
             text_align="left",

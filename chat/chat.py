@@ -21,8 +21,8 @@ def index() -> rx.Component:
 # Add state and page to the app.
 app = rx.App(
     theme=rx.theme(
-        appearance="dark",
-        accent_color="violet",
+        appearance="light",
+        accent_color="teal",
     ),
 )
 app.add_page(index)
