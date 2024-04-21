@@ -79,7 +79,9 @@ def action_bar() -> rx.Component:
                                         rx.radix.text_field.input(
                                             placeholder="Type something...",
                                             id="question",
-                                            width=["15em", "20em", "45em", "50em", "50em", "50em"],
+                                            #width=["15em", "20em", "45em", "50em", "50em", "50em"],
+                                            width=["100em", "100em", "100em", "90em", "70em", "100em"],
+                                            height=["3em", "3em", "3em", "3em", "3em", "3em"],
                                             background_color="#ffffff",
                                             color="#3E63DD"
                                         ),
@@ -124,8 +126,8 @@ def action_bar() -> rx.Component:
         backdrop_filter="auto",
         backdrop_blur="lg",
         background_color="#A0B6FF",
-        align_items="stretch",
-        width="100%",
+        #align_items="stretch",
+        #width="100%",
     )
 
 color = "#3E63DD"
