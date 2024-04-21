@@ -7,7 +7,7 @@ import os
 import intel_extension_for_pytorch as ipex
 
 # Constants
-MODEL_PATH = "/home/health_app/checkpoints/checkpoint_epoch_1lsa.pth"
+MODEL_PATH = "/home/health_app/checkpoints/checkpoint_epoch_3.pth"
 TEST_DATA_PATH = "/home/health_app/test/Testing"
 BATCH_SIZE = 4
 
