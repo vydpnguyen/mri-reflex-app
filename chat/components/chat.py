@@ -4,7 +4,8 @@ from chat.components import loading_icon
 from chat.state import QA, State
 
 
-message_style = dict(display="inline-block", padding="1em", border_radius="8px", max_width=["30em", "30em", "50em", "50em", "50em", "50em"])
+#message_style = dict(display="inline-block", padding="1em", border_radius="8px", max_width=["30em", "30em", "50em", "50em", "50em", "50em"])
+message_style = dict(display="inline-block", margin="0", padding="0em 1em", border_radius="8px", max_width=["30em", "30em", "50em", "50em", "50em", "50em"])
 
 
 def message(qa: QA) -> rx.Component:
@@ -25,7 +26,7 @@ def message(qa: QA) -> rx.Component:
                 **message_style,
             ),
             text_align="right",
-            margin_top="0.5em",
+            margin_top="0.7em",
         ),
         rx.box(
             rx.markdown(
@@ -35,7 +36,7 @@ def message(qa: QA) -> rx.Component:
                 **message_style,
             ),
             text_align="left",
-            padding_top="0.5em",
+            padding_top="1em",
         ),
         width="100%",
     )
