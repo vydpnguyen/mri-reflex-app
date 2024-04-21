@@ -30,7 +30,7 @@ def message(qa: QA) -> rx.Component:
         rx.box(
             rx.markdown(
                 qa.answer,
-                background_color="#3E63DD",
+                background="linear-gradient(92deg, #243ADE 0%, #05B7FB 100%)",
                 color="#ffffff",
                 **message_style,
             ),
@@ -64,11 +64,14 @@ def action_bar() -> rx.Component:
                             rx.upload(
                                 rx.button("Select File", color=color, bg="white", border=f"1px solid {color}"),
                                 id="upload1",
+                                on_click=State.handle_upload(rx.upload_files(upload_id="upload1")),
+                                
                             ),
-                            rx.hstack(rx.foreach(rx.selected_files("upload1"), rx.text)),
+                            #rx.hstack(rx.foreach(rx.selected_files("upload1"), rx.text)),
                             rx.button(
                                 "Upload",
                                 on_click=State.handle_upload(rx.upload_files(upload_id="upload1")),
+                                #background="linear-gradient(92deg, #243ADE 0%, #05B7FB 100%)",
                             ),
                             #rx.foreach(State.img, lambda img: rx.image(src=rx.get_upload_url(img))),
                         ),
@@ -90,6 +93,7 @@ def action_bar() -> rx.Component:
                                             loading_icon(height="1em"),
                                             rx.text("Send"),
                                         ),
+                                        #background="linear-gradient(92deg, #243ADE 0%, #05B7FB 100%)",
                                         type="submit",
                                     ),
 
@@ -102,18 +106,17 @@ def action_bar() -> rx.Component:
                         ),
                         align_items="center",
                     ),
+            rx.hstack(rx.foreach(
+                rx.selected_files("upload1"),
+                lambda file: rx.text(f"You have selected your file. Click Upload.", color="#3E63DD", font_size="12px",)),
+            ),
             rx.text(
-                "MRIBot may return factually incorrect or misleading responses. Use discretion.",
+                "mirAI may return factually incorrect or misleading responses. Use discretion.",
                 text_align="center",
                 font_size=".75em",
                 color="#3E63DD"
             ),
-            rx.hstack(
-                rx.text("Built with", color="#ffffff"),
-                rx.image(src="https://i.ibb.co/Df6px36/Screenshot-2024-04-20-at-1-53-45-PM.png", height="30px", width="auto"),
-                align_items="flex-end",
-                justify_content="space-between",
-            ),
+            rx.text("Built with Reflex & GeminiAI", color="#3E63DD", font_weight="bold"),
             align_items="center",
             justify_content="in-between",
         ),
@@ -123,7 +126,7 @@ def action_bar() -> rx.Component:
         padding_y="16px",
         backdrop_filter="auto",
         backdrop_blur="lg",
-        background_color="#A0B6FF",
+        background_color="#E0F0F7",
         align_items="stretch",
         width="100%",
     )

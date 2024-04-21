@@ -10,7 +10,7 @@ def index() -> rx.Component:
         navbar(),
         chat.chat(),
         chat.action_bar(),
-        background_color="#A0B6FF",
+        background_color="#E0F0F7",
         color=rx.color("indigo", 12),
         min_height="100vh",
         align_items="stretch",

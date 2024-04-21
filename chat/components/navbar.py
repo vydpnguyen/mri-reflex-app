@@ -79,7 +79,6 @@ def modal(trigger) -> rx.Component:
                         on_click=State.create_chat,
                     ),
                 ),
-                background_color="ffffff",
                 spacing="2",
                 width="100%",
             ),
@@ -92,22 +91,16 @@ def navbar():
         rx.hstack(
             # Avatar, heading and  Intros
             rx.hstack(
-                rx.icon(
-                    tag="heart-pulse",
-                    color="#3E63DD",
-                ),
-                #rx.avatar(fallback="RC", variant="solid"),
-                rx.heading("MRIBot", color="#3E63DD"),
-                rx.desktop_only(
-                    rx.badge(
+                rx.image(src="https://i.postimg.cc/QdWSD4Xy/Frame-1.png", height="37px", width="auto"),
+                rx.heading("mirAI", color="#3E63DD", font_size="28px"),
+            ),
+            rx.desktop_only(
+                    rx.text(
                     # name of current chat
                     State.current_chat,
-                    variant="solid",
-                    background_color="#3E63DD"
+                    color="#3E63DD",
                     )
-                ),
-                align_items="center",
-            ),
+                ),  
             rx.hstack(
                 # call function to create a modal dialog component
                 modal(
@@ -116,7 +109,6 @@ def navbar():
                                 tag="plus",
                                 color="#ffffff",
                             ),
-                            background_color="#3E63DD",
                     ),
                 ),
                 # call function to create a sidebar
@@ -126,7 +118,6 @@ def navbar():
                             tag="messages-square",
                             color="#ffffff",
                         ),
-                        background_color="#3E63DD",
                     )
                 )
             ),
