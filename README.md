@@ -9,6 +9,8 @@ For the front-end we used one of the sponsors' technology, Reflex, which communi
 ## Getting Started
 - Run `reflex` to start the front-end
 ```
-run reflex
 init reflex
+run reflex
 ```
+
+https://devpost.com/software/mirai-m1n386
